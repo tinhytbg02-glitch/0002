@@ -1,0 +1,16 @@
+function randomToken(length = 64) {
+  const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let result = '';
+
+  for (let i = 0; i < length; i++) {
+    result += chars[Math.floor(Math.random() * chars.length)];
+  }
+
+  return result;
+}
+
+const token = randomToken();
+
+history.replaceState({}, '', '/' + token);
+
+location.href = 'https://www.google.com';
